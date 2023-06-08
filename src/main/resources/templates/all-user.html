@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Users table</title>
+</head>
+<body bgcolor="#afeeee">
+<h1>All users</h1>
+<br>
+<table class ="italic">
+    <tr border="1" bgcolor="#f0f8ff">
+        <th><h3>Id</h3></th>
+        <th><h3>Name</h3></th>
+        <th><h3>Surname</h3></th>
+        <th><h3>Department</h3></th>
+        <th><h3>Salary</h3></th>
+        <th><h3>Operations</h3></th>
+    </tr>
+    <tr th:each="user:${fromUser}">
+
+        <th bgcolor="#ffd700"><a th:href="@{/{id}(id=${user.getId()})}" th:text="${user.getId()}"></a></th>
+<!--        <th bgcolor="#ffd700" th:utext="${user.getId()}"></th>-->
+        <th bgcolor="#ffd700" th:utext="${user.getName()}"></th>
+        <th bgcolor="#ffd700" th:utext="${user.getSurname()}"></th>
+        <th bgcolor="#ffd700" th:utext="${user.getDepartment()}"></th>
+        <th bgcolor="#ffd700" th:utext="${user.getSalary()}"></th>
+<!--        <th bgcolor="#ffd700"><button>update</button>-->
+        <th>
+            <a th:href="@{{id}/edit(id=${user.getId()})}">
+                <button>update</button></a>
+
+            <form th:method="DELETE" th:action="@{{id}(id=${user.getId()})}">
+                <input type="submit" value="delete">
+            </form>
+        </th>
+
+    </tr>
+
+
+</table>
+<br>
+<form  action="/addUser">
+    <button><h3>AddUser</h3></button>
+</form>
+
+</body>
+</html>

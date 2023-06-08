@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit of user</title>
+</head>
+<body bgcolor="#afeeee">
+<table class ="italic">
+    <h1>Changing data</h1>
+    <tr>
+        <form th:method="patch" th:action="@{/{id}((id=${user.getId()})}" th:object="${user}">
+            <td bgcolor="#ffd700">
+                <label for="id"><h3>ID</h3></label>
+                <input readonly type="number" th:field="*{id}" id="id" placeholder="id">
+            </td>
+            <td bgcolor="#f0f8ff">
+                <label for="name"><h3>Name</h3></label><input type="text" th:field="*{name}" id="name"/>
+                <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+            </td>
+            <td bgcolor="#f0f8ff">
+                <label for="surname"><h3>Surname</h3></label><input type="text" th:field="*{surname}" id="surname">
+                <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">lastName error</div>
+            </td>
+            <td bgcolor="#f0f8ff">
+                <label for="department"><h3>Department</h3></label><input type="text" th:field="*{department}" id="department">
+                <div th:if="${#fields.hasErrors('department')}" th:errors="*{department}">lastName error</div>
+            </td>
+            <td bgcolor="#f0f8ff">
+                <label for="salary"><h3>Department</h3></label><input type="text" th:field="*{salary}" id="salary">
+                <div th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}">lastName error</div>
+            </td>
+            <br/>
+            <input type="submit" value="update"/>
+        </form>
+    </tr>
+    <br/>
+</table>
+
+</body>
+</html>

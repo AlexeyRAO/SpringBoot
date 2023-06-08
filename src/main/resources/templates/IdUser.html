@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body  bgcolor="#afeeee">
+<h1>User found</h1>
+<table class ="italic">
+    <tr  border="1" bgcolor="#f0f8ff">
+        <th bgcolor="#ffd700"><h2>Id</h2></th>
+        <th><h2>Name</h2></th>
+        <th><h2>Surname</h2></th>
+        <th><h2>Department</h2></th>
+        <th><h2>Salary</h2></th>
+    </tr>
+    <tr>
+        <h3><td bgcolor="#ffd700" th:text="${user.getId()}">ID</td></h3>
+        <h3><td bgcolor="#f0f8ff"  th:text="${user.getName()}">Name</td></h3>
+        <h3><td bgcolor="#f0f8ff"  th:text="${user.getSurname()}">Surname</td></h3>
+        <h3><td bgcolor="#f0f8ff"  th:text="${user.getDepartment()}">Department</td></h3>
+        <h3><td bgcolor="#f0f8ff"  th:text="${user.getSalary()}">Salary</td></h3>
+
+    </tr>
+</table>
+<br>
+<form action="/static">
+    <button>Users</button>
+</form>
+</body>
+</html>
